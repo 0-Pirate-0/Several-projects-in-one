@@ -1,0 +1,574 @@
+@import "nullstyle.scss";
+
+@mixin dff($where) {
+    display: flex;
+    justify-content: $where;
+    align-items: center;
+}
+
+$title-fz: 2.5em;
+$own-c: #fff;
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+body.overflow {
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1880px;
+    padding: 0 20px;
+}
+
+.intro {
+    @include dff(center);
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    max-width: 1920px;
+    background-size: cover;
+    position: relative;
+    font-weight: 500;
+    color: $own-c;
+    padding: 0 20px;
+    text-align: center;
+
+    &__time {
+        font-size: 10rem;
+
+        @media screen and (max-width: 920px) {
+            font-size: 8em;
+        }
+
+        @media screen and (max-width: 720px) {
+            font-size: 6em;
+        }
+        @media screen and (max-width: 560px) {
+            font-size: 4.5em;
+        }
+        @media screen and (max-width: 400px) {
+            font-size: 3.5em;
+        }
+    }
+
+    &__title {
+        font-size: 2em;
+        margin: 2rem auto;
+        @media screen and (max-height: 400px) {
+            margin: 1rem auto;
+        }
+    }
+
+
+    &__subtitle {
+        font-size: 2em;
+        margin-bottom: .5rem;
+    }
+
+    &__focus {
+        font-size: 1.5em;
+        @media screen and (max-height: 500px) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__btn {
+        font-size: 1.5em;
+        position: absolute;
+        left: 100px;
+        bottom: 100px;
+        cursor: pointer;
+
+        @media screen and (max-width: 920px) {
+            left: 70px;
+            bottom: 90px;
+        }
+        @media screen and (max-width: 560px) {
+            left: 0;
+            right: 0;
+            bottom: 70px;
+        }
+        @media screen and (max-height: 600px) {
+            left: 0;
+            right: 0;
+            bottom: 30px;
+        }
+        @media screen and (max-height: 360px) {
+            bottom: 15px;
+        }
+    }
+
+    &__arrow {
+        width: 38px;
+        height: 100px;
+        position: absolute;
+        bottom: 70px;
+        cursor: pointer;
+
+        & span {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-bottom: 5px solid $own-c;
+            border-right: 5px solid $own-c;
+            transform: rotate(45deg);
+            margin: -16px 0;
+            animation: intro__arrow 2s infinite;
+            @media screen and (max-width: 720px) {
+                width: 40px;
+                height: 40px;
+                border-width: 6px;
+            }
+        }
+
+        & span:nth-child(2) {
+            animation-delay: -0.2s;
+        }
+
+        & span:nth-child(3) {
+            animation-delay: -0.4s;
+        }
+
+        @media screen and (max-height: 760px) {
+            display: none;
+        }
+        @media screen and (max-width: 760px) {
+            bottom: 130px;
+            left: 45%;
+        }
+        @media screen and (max-width: 720px) {
+            width: 38px;
+            height: 100px;
+            bottom: 140px;
+        }
+    }
+
+}
+
+@keyframes intro__arrow {
+    0% {
+        opacity: 0;
+        transform: translate(0, -20px) rotate(45deg);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0, 20px) rotate(45deg);
+    }
+}
+
+.tictac {
+    @include dff(center);
+    padding: 5em 0;
+    background: url("../images/tictac-bg.jpg") top center no-repeat;
+    background-size: cover;
+
+    &__inner {
+        position: relative;
+    }
+
+    &__title {
+        font-size: 2.5em;
+        color: $own-c;
+        text-align: center;
+        & span {
+            @media screen and (max-width: 600px) {
+                display: block;
+                margin-top: 10px;
+            }
+        }
+        @media screen and (max-width: 360px) {
+            font-size: 2em;
+        }
+    }
+
+    &__subtitle {
+        font-size: 2em;
+        color: $own-c;
+        margin: 40px auto;
+        text-align: center;
+
+        @media screen and (max-width: 800px) {
+            margin-top: 20px;
+        }
+        @media screen and (max-width: 360px) {
+            font-size: 1.5em;
+        }
+    }
+
+    &__table {
+        margin: 0 auto;
+        border-collapse: collapse;
+
+        & tr:first-child td {
+            border-top: 0;
+        }
+
+        & tr td:first-child {
+            border-left: 0;
+        }
+
+        & tr:last-child td {
+            border-bottom: 0;
+        }
+
+        & tr td:last-child {
+            border-right: 0;
+        }
+
+        @media screen and (max-width: 800px) {
+            margin: 0 auto;
+        }
+    }
+
+    &__cell {
+        font-size: 7.5em;
+        width: 200px;
+        height: 200px;
+        color: $own-c;
+        border: 3px solid $own-c;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        
+        @media screen and (max-width: 800px) {
+            width: 150px;
+            height: 150px;
+        }
+        @media screen and (max-width: 520px) {
+            font-size: 6.5em;
+            width: 120px;
+            height: 120px;
+        }
+        @media screen and (max-width: 400px) {
+            font-size: 4.5em;
+            width: 90px;
+            height: 90px;
+        }
+    }
+
+    &__endgame {
+        display: none;
+        position: absolute;
+        top: 48%;
+        left: 25.5%;
+        font-size: 3.5em;
+        color: $own-c;
+        width: 300px;
+        background-color: rgba(205, 133, 63, 0.8);
+        padding: 30px 0;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    &__replay {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    &__btn {
+        font-size: 2em;
+        font-weight: 500;
+        color: $own-c;
+        background: none;
+    }
+    @media screen and (max-width: 520px) {
+        padding: 4em 0;
+    }
+    @media screen and (max-width: 380px) {
+        padding: 3em 0;
+    }
+    @media screen and (max-height: 450px) {
+        padding: 1em 0;
+    }
+}
+
+.rps {
+    color: $own-c;
+    background-color: rgb(31, 41, 68);
+    padding: 5em 0;
+
+    &__inner {
+        padding-top: 3em;
+        text-align: center;
+        @media screen and (max-width: 1000px) {
+            padding-top: 0;
+        }
+    }
+
+    &__title {
+        font-size: 2.5em;
+    }
+
+    &__subtitle {
+        font-size: 2em;
+        margin: 30px auto;
+
+        & div {
+            font-size: .7em;
+            margin-top: 15px;
+        }
+    }
+
+    &__score {
+        @include dff(space-around);
+    }
+
+    &__score h2 {
+        font-size: 2em;
+    }
+
+    &__score p {
+        font-size: 1.5em;
+        padding: 10px;
+    }
+
+    &__name {
+        @include dff(space-around);
+        flex-direction: column;
+        margin: 50px auto 0;
+        transition: all .5s ease;
+
+        & h1 {
+            font-size: 3em;
+            margin-bottom: 60px;
+            @media screen and (max-width: 1200px) {
+                margin-bottom: 30px;
+            }
+            @media screen and (max-width: 620px) {
+                font-size: 2.5em;
+            }
+        }
+
+        @media screen and (max-width: 720px) {
+            margin-top: 30px;
+        }
+        @media screen and (max-width: 480px) {
+            margin: 30px auto;
+        }
+    }
+
+
+    &__name button,
+    &__options button {
+        width: 150px;
+        height: 50px;
+        font-size: 22px;
+        color: $own-c;
+        background: #2d7560;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    &__match {
+        margin-top: -180px;
+        margin-bottom: 40px;
+        transition: all .5s ease;
+        @media screen and (max-width: 1200px) {
+            margin-top: -150px;
+        }
+        @media screen and (max-width: 620px) {
+            margin-top: -130px;
+            margin-bottom: 25px;
+        }
+        @media screen and (max-width: 480px) {
+            margin-top: -180px;
+            margin-bottom: 15px;
+        }
+    }
+
+    &__winner {
+        font-size: 3em;
+        @media screen and (max-width: 520px) {
+            font-size: 2.5em;
+        }
+        @media screen and (max-width: 420px) {
+            font-size: 2em;
+        }
+    }
+
+    &__hands,
+    &__options {
+        @include dff(space-around);
+    }
+
+    &__hands img {
+        @media screen and (max-width: 900px) {
+            display: block;
+            width: 290px;
+        }
+
+        @media screen and (max-width: 730px) {
+            width: 200px;
+        }
+        @media screen and (max-width: 480px) {
+            width: 150px;
+        }
+    }
+
+    &__player--hand {
+        transform: rotateY(180deg);
+    }
+
+    &__options {
+        & button {
+            @media screen and (max-width: 560px) {
+                margin: 0 20px 25px;
+            }
+            @media screen and (max-width: 480px) {
+                width: 200px;
+                margin: 0 50px 20px;
+            }
+        }
+        & button:last-child {
+            @media screen and (max-width: 560px) {
+                width: 200px;
+            }
+        }
+
+        @media screen and (max-width: 560px) {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+    @media screen and (max-width: 620px) {
+        padding: 4em 0;
+    }
+    @media screen and (max-width: 480px) {
+        padding: 2.5em 0;
+    }
+    @media screen and (max-width: 400px) {
+        padding: 2em 0;
+    }
+}
+
+.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fadeIn {
+    opacity: 1;
+    pointer-events: all;
+}
+
+@keyframes shakePlayer {
+    0% {
+        transform: rotateY(180deg) translateY(0px);
+    }
+
+    15% {
+        transform: rotateY(180deg) translateY(-60px);
+    }
+
+    30% {
+        transform: rotateY(180deg) translateY(0px);
+    }
+
+    45% {
+        transform: rotateY(180deg) translateY(-60px);
+    }
+
+    60% {
+        transform: rotateY(180deg) translateY(0px);
+    }
+
+    75% {
+        transform: rotateY(180deg) translateY(-60px);
+    }
+
+    85% {
+        transform: rotateY(180deg) translateY(0px);
+    }
+
+    95% {
+        transform: rotateY(180deg) translateY(-60px);
+    }
+
+    100% {
+        transform: rotateY(180deg) translateY(0px);
+    }
+}
+
+@keyframes shakeComputer {
+    0% {
+        transform: translateY(0px);
+    }
+
+    15% {
+        transform: translateY(-60px);
+    }
+
+    30% {
+        transform: translateY(0px);
+    }
+
+    45% {
+        transform: translateY(-60px);
+    }
+
+    60% {
+        transform: translateY(0px);
+    }
+
+    75% {
+        transform: translateY(-60px);
+    }
+
+    85% {
+        transform: translateY(0px);
+    }
+
+    95% {
+        transform: translateY(-60px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.snake {
+    @include dff(center);
+    flex-direction: column;
+    height: 100vh;
+    background: url("../images/snake-bg.jpg") top center no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    text-align: center;
+
+    &__btn {
+        font-size: 3em;
+        color: $own-c;
+        background: none;
+    }
+
+    &__game {
+        display: block;
+        margin: 100px auto 0;
+    }
+
+    &__title {
+        font-family: Tahoma, sans-serif;
+        font-size: 47px;
+        color: #fff;
+        margin-top: 50px;
+    }
+
+    &__title img {
+        margin-left: 30px;
+        vertical-align: middle;
+    }
+
+    @media screen and (max-width: 1400px) {
+        display: none;
+    }
+}

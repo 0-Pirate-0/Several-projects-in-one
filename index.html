@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Intro -->
+    <div id="intro" class="intro">
+        <div class="intro__inner">
+            <time id="time" class="intro__time"></time>
+            <h1 class="intro__title">
+                <span id="greeting"></span>
+                <span id="name" contenteditable="true"></span>
+            </h1>
+            <h2 class="intro__subtitle">What Is Your Focus For Today?</h2>
+            <h2 id="focus" class="intro__focus" contenteditable="true"></h2>
+            <a href="#ttt" class="intro__arrow">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+            <div id="introBtn" class="intro__btn">Swith Time Format</div>
+        </div>
+    </div>
+
+    <!-- Tic Tac Toe -->
+    <section id="ttt" class="tictac">
+        <div class="container">
+            <div class="tictac__inner">
+                <div class="tictac__title">You want to play <span>Tic-tac-toe?</span></div>
+                <div class="tictac__subtitle">You'll never beat him!</div>
+                <table class="tictac__table">
+                    <tr class="tictac__row">
+                        <td id="0" class="tictac__cell"></td>
+                        <td id="1" class="tictac__cell"></td>
+                        <td id="2" class="tictac__cell"></td>
+                    </tr>
+                    <tr class="tictac__row">
+                        <td id="3" class="tictac__cell"></td>
+                        <td id="4" class="tictac__cell"></td>
+                        <td id="5" class="tictac__cell"></td>
+                    </tr>
+                    <tr class="tictac__row">
+                        <td id="6" class="tictac__cell"></td>
+                        <td id="7" class="tictac__cell"></td>
+                        <td id="8" class="tictac__cell"></td>
+                    </tr>
+                </table>
+                <div class="tictac__endgame">
+                    <div class="tictac__text"></div>
+                </div>
+                <div class="tictac__replay">
+                    <button class="tictac__btn" onclick="startGame()">Replay</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rock Paper Scissors = rps -->
+    <section class="rps">
+        <div class="container">
+            <div class="rps__inner">
+                <div class="rps__title">How about rock paper scissors?</div>
+                <div class="rps__subtitle">
+                    Have a good game!
+                    <br>
+                    <div>The counter resets after 10</div>
+                </div>
+                <div class="rps__score">
+                    <div id="rps__player--score">
+                        <h2>Player</h2>
+                        <p>0</p>
+                    </div>
+                    <div id="rps__computer--score">
+                        <h2>Computer</h2>
+                        <p>0</p>
+                    </div>
+                </div>
+
+                <div class="rps__name">
+                    <h1>Rock Paper and Scissors</h1>
+                    <button>Lets Play</button>
+                </div>
+
+                <div class="rps__match fadeOut">
+                    <h2 class="rps__winner">Choose an option</h2>
+                    <div class="rps__hands">
+                        <img class="rps__player--hand" src="assets/images/rock.png" alt="">
+                        <img class="rps__computer--hand" src="assets/images/rock.png" alt="">
+                    </div>
+                </div>
+
+                <div class="rps__options">
+                    <button class="rock">rock</button>
+                    <button class="paper">paper</button>
+                    <button class="scissors">scissors</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Snake -->
+    <section class="snake">
+        <div class="container">
+            <button class="snake__btn">Tap to lock the screen</button>
+            <canvas id="game" class="snake__game" width="608" height="608"></canvas>
+            <div class="snake__title">
+                Управление
+                <img src="assets/images/wasd.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

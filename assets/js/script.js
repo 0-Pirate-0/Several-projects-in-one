@@ -52,15 +52,15 @@ function setBgGreet() {
 
 	if (hour < 12) {
 		// Morning
-		intro.style.backgroundImage = "url('assets/images/morning.jpg')"
+		intro.style.backgroundImage = "url('assets/images/intro/morning.jpg')"
 		greeting.textContent = 'Good Morning,'
 	} else if (hour < 18) {
 		// Afternoon
-		intro.style.backgroundImage = "url('assets/images/afternoon.jpg')"
+		intro.style.backgroundImage = "url('assets/images/intro/afternoon.jpg')"
 		greeting.textContent = 'Good Afternoon,'
 	} else {
 		// Evening
-		intro.style.backgroundImage = "url('assets/images/night.jpg')"
+		intro.style.backgroundImage = "url('assets/images/intro/night.jpg')"
 		greeting.textContent = 'Good Evening,'
 	}
 }
@@ -163,7 +163,7 @@ const cells = document.querySelectorAll('.tictac__cell');
 startGame();
 
 function startGame() {
-	document.querySelector(".tictac__endgame").style.display = "none";
+	document.querySelector(".tictac__endgame--block").style.display = "none";
 	origBoard = Array.from(Array(9).keys());
 	for (var i = 0; i < cells.length; i++) {
 		cells[i].innerText = '';
@@ -214,8 +214,8 @@ function gameOver(gameWon) {
 }
 
 function declareWinner(who) {
-	document.querySelector(".tictac__endgame").style.display = "block";
-	document.querySelector(".tictac__endgame .tictac__text").innerText = who;
+	document.querySelector(".tictac__endgame--block").style.display = "block";
+	document.querySelector(".tictac__endgame--block .tictac__endgame--text").innerText = who;
 }
 
 function emptySquares() {
@@ -318,79 +318,79 @@ const gameRps = () => {
 		const computerHand = document.querySelector('.rps__computer--hand')
 		const hands = document.querySelectorAll('.rps__hands img')
 
-		if(screen.width <= 730) {
-			playerHand.src = `assets/images/rock-2.png`
-			computerHand.src = `assets/images/rock-2.png`
+		if (screen.width <= 730) {
+			playerHand.src = `assets/images/rps/rock-2.png`
+			computerHand.src = `assets/images/rps/rock-2.png`
 		}
 
 		hands.forEach(hand => {
-			hand.addEventListener('animationend', function() {
+			hand.addEventListener('animationend', function () {
 				this.style.animation = ''
 			})
 		})
 		// Computer Options
 		const computerOptions = ['rock', 'paper', 'scissors']
 		options.forEach((option) => {
-			option.addEventListener('click', function() {
+			option.addEventListener('click', function () {
 				// Switch Fz
 				const winner = document.querySelector('.rps__winner')
 				const winnerFz = () => {
-					if(screen.width <= 500 && winner.textContent === 'Wait a few seconds...') {
+					if (screen.width <= 500 && winner.textContent === 'Wait a few seconds...') {
 						winner.style.fontSize = '40px'
-					} else if(screen.width <= 500 && winner.textContent !== 'Wait a few seconds...') {
+					} else if (screen.width <= 500 && winner.textContent !== 'Wait a few seconds...') {
 						winner.style.fontSize = '48px'
 					}
-					if(screen.width <= 420 && winner.textContent === 'Wait a few seconds...') {
+					if (screen.width <= 420 && winner.textContent === 'Wait a few seconds...') {
 						winner.style.fontSize = '36px'
-					} else if(screen.width <= 420 && winner.textContent !== 'Wait a few seconds...') {
+					} else if (screen.width <= 420 && winner.textContent !== 'Wait a few seconds...') {
 						winner.style.fontSize = '48px'
 					}
-					if(screen.width <= 380 && winner.textContent === 'Wait a few seconds...') {
+					if (screen.width <= 380 && winner.textContent === 'Wait a few seconds...') {
 						winner.style.fontSize = '32px'
-					} else if(screen.width <= 380 && winner.textContent !== 'Wait a few seconds...') {
+					} else if (screen.width <= 380 && winner.textContent !== 'Wait a few seconds...') {
 						winner.style.fontSize = '44px'
 					}
-					if(screen.width <= 345 && winner.textContent === 'Wait a few seconds...') {
+					if (screen.width <= 345 && winner.textContent === 'Wait a few seconds...') {
 						winner.style.fontSize = '28px'
-					} else if(screen.width <= 345 && winner.textContent !== 'Wait a few seconds...') {
+					} else if (screen.width <= 345 && winner.textContent !== 'Wait a few seconds...') {
 						winner.style.fontSize = '40px'
 					}
-				} 
+				}
 
 				// Computer Choise
 				const computerNumber = Math.floor(Math.random() * 3)
 				const computerChoise = computerOptions[computerNumber]
-				if(winner.textContent === 'Choose an option' || winner.textContent !== 'Choose an option') {
+				if (winner.textContent === 'Choose an option' || winner.textContent !== 'Choose an option') {
 					winner.textContent = 'Wait a few seconds...'
 					winnerFz()
-				}			
+				}
 
-				if(screen.width <= 730) {
-					playerHand.src = `assets/images/rock-2.png`
-					computerHand.src = `assets/images/rock-2.png`
+				if (screen.width <= 730) {
+					playerHand.src = `assets/images/rps/rock-2.png`
+					computerHand.src = `assets/images/rps/rock-2.png`
 					setTimeout(() => {
 						// Here is where we call compare hands
 						compareHands(this.textContent, computerChoise)
 						// Swith Font size
 						winnerFz()
 						// Update Images
-						playerHand.src = `assets/images/${this.textContent}-2.png`
-						computerHand.src = `assets/images/${computerChoise}-2.png`
+						playerHand.src = `assets/images/rps/${this.textContent}-2.png`
+						computerHand.src = `assets/images/rps/${computerChoise}-2.png`
 					}, 1950)
 				} else {
-					playerHand.src = `assets/images/rock.png`
-					computerHand.src = `assets/images/rock.png`
+					playerHand.src = `assets/images/rps/rock.png`
+					computerHand.src = `assets/images/rps/rock.png`
 					setTimeout(() => {
 						// Here is where we call compare hands
 						compareHands(this.textContent, computerChoise)
 						// Swith Font size
 						winnerFz()
 						// Update Images
-						playerHand.src = `assets/images/${this.textContent}.png`
-						computerHand.src = `assets/images/${computerChoise}.png`
+						playerHand.src = `assets/images/rps/${this.textContent}.png`
+						computerHand.src = `assets/images/rps/${computerChoise}.png`
 					}, 1950)
-				}	
-				
+				}
+
 				// Animation
 				playerHand.style.animation = 'shakePlayer 2s ease'
 				computerHand.style.animation = 'shakeComputer 2s ease'
@@ -411,13 +411,13 @@ const gameRps = () => {
 		// Update Text
 		const winner = document.querySelector('.rps__winner')
 		// Checking for a tie
-		if(playerChoise === computerChoise) {
+		if (playerChoise === computerChoise) {
 			winner.textContent = 'It is a tie'
 			return
 		}
 		// Check for rock
-		if(playerChoise === 'rock') {
-			if(computerChoise === 'scissors') {
+		if (playerChoise === 'rock') {
+			if (computerChoise === 'scissors') {
 				winner.textContent = 'Player Wins'
 				pScore++
 				updateScore()
@@ -430,8 +430,8 @@ const gameRps = () => {
 			}
 		}
 		// Check for paper
-		if(playerChoise === 'paper') {
-			if(computerChoise === 'rock') {
+		if (playerChoise === 'paper') {
+			if (computerChoise === 'rock') {
 				winner.textContent = 'Player Wins'
 				pScore++
 				updateScore()
@@ -444,8 +444,8 @@ const gameRps = () => {
 			}
 		}
 		// Check for scissors
-		if(playerChoise === 'scissors') {
-			if(computerChoise === 'paper') {
+		if (playerChoise === 'scissors') {
+			if (computerChoise === 'paper') {
 				winner.textContent = 'Player Wins'
 				pScore++
 				updateScore()
@@ -467,109 +467,156 @@ const gameRps = () => {
 gameRps()
 
 // Snake
-const canvas = document.getElementById("game")
-const ctx = canvas.getContext("2d")
+let bestScore = 0
 
-const ground = new Image()
-ground.src = "assets/images/ground.png"
+function ownSnakeGame() {
+	const canvas = document.getElementById("game")
+	const ctx = canvas.getContext("2d")
 
-const foodImg = new Image()
-foodImg.src = "assets/images/food.png"
+	const ground = new Image()
+	ground.src = "assets/images/snake/ground.png"
 
-let box = 32
-let score = 0
+	const foodImg = new Image()
+	foodImg.src = "assets/images/snake/food.png"
 
-let food = {
-    x: Math.floor((Math.random() * 17 + 1)) * box,
-    y: Math.floor((Math.random() * 15 + 3)) * box
+	const snakeModal = document.querySelector('.snake__modal')
+
+	const box = 32
+	let score = 0
+
+	let food = {
+		x: Math.floor((Math.random() * 17 + 1)) * box,
+		y: Math.floor((Math.random() * 15 + 3)) * box
+	}
+
+	let snake = []
+	snake[0] = {
+		x: 9 * box,
+		y: 10 * box
+	}
+
+	let dir
+
+	function direction(event) {
+		if (event.keyCode == 87 && dir != "down") {
+			dir = "up"
+		} else if (event.keyCode == 83 && dir != "up") {
+			dir = "down"
+		} else if (event.keyCode == 65 && dir != "right") {
+			dir = "left"
+		} else if (event.keyCode == 68 && dir != "left") {
+			dir = "right"
+		}
+	}
+	if (screen.width <= 1399) {
+		const snakeUp = document.getElementById('snake--up')
+		snakeUp.addEventListener('click', function () {
+			dir = 'up'
+		})
+
+		const snakeDown = document.getElementById('snake--down')
+		snakeDown.addEventListener('click', function () {
+			dir = 'down'
+		})
+
+		const snakeLeft = document.getElementById('snake--left')
+		snakeLeft.addEventListener('click', function () {
+			dir = 'left'
+		})
+
+		const snakeRight = document.getElementById('snake--right')
+		snakeRight.addEventListener('click', function () {
+			dir = 'right'
+		})
+	}
+	document.addEventListener("keydown", direction)
+
+	function eatTail(head, arr) {
+		for (let i = 0; i < arr.length; i++) {
+			if (head.x == arr[i].x && head.y == arr[i].y) {
+				stopGame()
+			}
+		}
+	}
+
+	function drawGame() {
+		ctx.drawImage(ground, 0, 0)
+		ctx.drawImage(foodImg, food.x, food.y)
+
+		for (let i = 0; i < snake.length; i++) {
+			ctx.fillStyle = i == 0 ? "#0b6d0b" : "#085508"
+			ctx.fillRect(snake[i].x, snake[i].y, box, box)
+		}
+
+		ctx.fillStyle = "white"
+		ctx.font = "40px Arial"
+		ctx.fillText(`Score: ${score}`, box * 2.5, box * 1.6)
+		if (bestScore !== 0) {
+			if (bestScore < score) {
+				bestScore = score
+				ctx.fillText(`Best: ${bestScore}`, box * 13, box * 1.6)
+			}
+			ctx.fillText(`Best: ${bestScore}`, box * 13, box * 1.6)
+		}
+
+		let snakeX = snake[0].x
+		let snakeY = snake[0].y
+
+		if (snakeX == food.x && snakeY == food.y) {
+			score++
+			food = {
+				x: Math.floor((Math.random() * 17 + 1)) * box,
+				y: Math.floor((Math.random() * 15 + 3)) * box
+			}
+		} else {
+			snake.pop()
+		}
+
+		if (snakeX < box || snakeX > box * 17 || snakeY < 3 * box || snakeY > box * 17) {
+			stopGame()
+		}
+
+		if (dir == "up") snakeY -= box
+		if (dir == "down") snakeY += box
+		if (dir == "left") snakeX -= box
+		if (dir == "right") snakeX += box
+
+		let newHead = {
+			x: snakeX,
+			y: snakeY
+		}
+
+		eatTail(newHead, snake)
+		snake.unshift(newHead)
+	}
+	let gameSnake = setInterval(drawGame, 125)
+
+	function stopGame() {
+		clearInterval(gameSnake)
+		setTimeout(function () {
+			snakeModal.style.display = 'block'
+			const snakeNormalScore = document.getElementById('ssN')
+			snakeNormalScore.textContent = score
+			if (bestScore <= score && score !== 0) {
+				bestScore = score
+			}
+			const snakeBestScore = document.getElementById('ssB')
+			snakeBestScore.textContent = score > bestScore ? bestScore = score : bestScore
+		}, 150)
+		return bestScore
+	}
+
+	const resetGame = () => {
+		snakeModal.style.display = 'none'
+		score = 0
+		snake = []
+		snake[0] = {
+			x: 9 * box,
+			y: 10 * box
+		}
+		ownSnakeGame()
+	}
+	const snakeBtn = document.querySelector('.snake__modal--button')
+	snakeBtn.addEventListener('click', resetGame)
 }
-
-let snake = []
-snake[0] = {
-    x: 9 * box,
-    y: 10 * box
-}
-
-document.addEventListener("keydown", direction)
-let dir
-
-function direction(event) {
-    if(event.keyCode == 37 && dir != "right") {
-        dir = "left"
-    } else if(event.keyCode == 38 && dir != "down") {
-        dir = "up"
-    } else if(event.keyCode == 39 && dir != "left") {
-        dir = "right"
-    } else if(event.keyCode == 40 && dir != "up") {
-        dir = "down"
-    } 
-}
-
-function eatTail(head, arr) {
-    for(let i = 0; i < arr.length; i++) {
-        if(head.x == arr[i].x && head.y == arr[i].y) {
-            clearInterval(gameSnake)
-        }
-    }
-}
-
-function drawGame() {
-    ctx.drawImage(ground, 0, 0)
-    ctx.drawImage(foodImg, food.x, food.y)
-
-    for(let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = i == 0 ? "green" : "red"
-        ctx.fillRect(snake[i].x, snake[i].y, box, box)
-    }
-
-    ctx.fillStyle = "white"
-    ctx.font = "45px Arial"
-    ctx.fillText(`Счёт: ${score}`, box* 2.5, box * 1.6)
-
-    let snakeX = snake[0].x
-    let snakeY = snake[0].y
-
-    if(snakeX == food.x && snakeY == food.y) {
-        score++
-        food = {
-            x: Math.floor((Math.random() * 17 + 1)) * box,
-            y: Math.floor((Math.random() * 15 + 3)) * box
-        }
-    } else {
-        snake.pop()
-    }
-
-    if(snakeX < box || snakeX > box * 17 || snakeY < 3 * box || snakeY > box * 17) {
-        clearInterval(gameSnake)
-    }
-
-    if(dir == "left") snakeX -= box
-    if(dir == "right") snakeX += box
-    if(dir == "up") snakeY -= box
-    if(dir == "down") snakeY += box
-
-    let newHead = {
-        x: snakeX,
-        y: snakeY
-    }
-
-    eatTail(newHead, snake)
-    snake.unshift(newHead)
-}
-
-let gameSnake = setInterval(drawGame, 105)
-
-// Scrool + Body lock + Swith text
-const snakeBtnBodyLock = document.querySelector('.snake__btn')
-snakeBtnBodyLock.addEventListener('click', function() {
-	// Smooth scrool to gameSnake
-	snakeBtnBodyLock.scrollIntoView({
-		behavior: 'smooth',
-		block: 'start'
-	})
-	// Switch text on the button
-	let text = document.body.classList.contains('overflow') ? "lock" : "unlock"
-	snakeBtnBodyLock.textContent = `Tap to ${text} the screen`
-	// Body overflow hidden
-	document.body.classList.toggle('overflow')
-})
+ownSnakeGame()

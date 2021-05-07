@@ -247,6 +247,8 @@ body.overflow {
 	background-size: cover;
 }
 .tictac__inner {
+	max-width: 610px;
+	margin: 0 auto;
 	position: relative;
 }
 .tictac__title {
@@ -333,17 +335,53 @@ body.overflow {
 	}
 }
 .tictac__endgame {
-	display: none;
 	position: absolute;
 	top: 48%;
-	left: 25.5%;
+	left: 0;
+	right: 0;
+}
+.tictac__endgame--block {
+	display: none;
+	width: 300px;
 	font-size: 3.5em;
 	color: #fff;
-	width: 300px;
 	background-color: rgba(205, 133, 63, 0.8);
+	margin: 0 auto;
 	padding: 30px 0;
 	border-radius: 5px;
 	text-align: center;
+}
+@media screen and (max-width: 800px) {
+	.tictac__endgame--block {
+		width: 250px;
+	}
+}
+@media screen and (max-width: 520px) {
+	.tictac__endgame--block {
+		padding: 20px 0;
+	}
+}
+@media screen and (max-width: 400px) {
+	.tictac__endgame--block {
+		font-size: 2.5em;
+		width: 200px;
+		padding: 10px 0;
+	}
+}
+@media screen and (max-width: 800px) {
+	.tictac__endgame {
+		top: 46%;
+	}
+}
+@media screen and (max-width: 520px) {
+	.tictac__endgame {
+		top: 52%;
+	}
+}
+@media screen and (max-width: 400px) {
+	.tictac__endgame {
+		top: 58.5%;
+	}
 }
 .tictac__replay {
 	margin-top: 30px;
@@ -391,10 +429,6 @@ body.overflow {
 .rps__subtitle {
 	font-size: 2em;
 	margin: 30px auto;
-}
-.rps__subtitle div {
-	font-size: 0.7em;
-	margin-top: 15px;
 }
 .rps__score {
 	display: flex;
@@ -620,32 +654,103 @@ body.overflow {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	height: 100vh;
 	background: url("../images/snake-bg.jpg") top center no-repeat;
 	background-size: cover;
 	overflow: hidden;
 	text-align: center;
 }
-.snake__btn {
+.snake__inner {
+	max-width: 760px;
+	margin: 0 auto;
+	padding: 40px 0;
+}
+.snake__inner--game {
+	position: relative;
+}
+.snake__title, .snake__settings {
+	font-family: Tahoma, sans-serif;
 	font-size: 3em;
 	color: #fff;
+	margin-top: 50px;
 	background: none;
 }
 .snake__game {
 	display: block;
 	margin: 100px auto 0;
 }
-.snake__title {
-	font-family: Tahoma, sans-serif;
-	font-size: 47px;
-	color: #fff;
-	margin-top: 50px;
+.snake__control {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: none;
+	flex-wrap: wrap;
 }
-.snake__title img {
+.snake__control button {
+	display: block;
+	margin: 0 15px;
+}
+.snake__control--text {
+	display: inline-block;
+}
+@media screen and (max-width: 1399px) {
+	.snake__control--text {
+		display: none;
+	}
+}
+@media screen and (max-width: 1399px) {
+	.snake__control {
+		display: flex;
+	}
+}
+.snake__btn--up {
+	width: 100%;
+}
+.snake__btn--up button {
+	margin: 0 auto 20px;
+}
+.snake__wasd {
 	margin-left: 30px;
 	vertical-align: middle;
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1399px) {
+	.snake__wasd {
+		display: none;
+	}
+}
+.snake__modal {
+	display: none;
+	position: absolute;
+	top: 38.5%;
+	left: 0;
+	right: 0;
+}
+.snake__modal--inner {
+	font-size: 40px;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.93);
+	max-width: 608px;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+.snake__modal--score {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 20px auto 5px;
+}
+.snake__modal--score__inner {
+	margin: 0 20px;
+}
+.snake__modal--score span {
+	display: block;
+}
+.snake__modal--button {
+	font-size: 40px;
+	color: #fff;
+	background: none;
+	border: none;
+}
+@media screen and (max-width: 719px) {
 	.snake {
 		display: none;
 	}

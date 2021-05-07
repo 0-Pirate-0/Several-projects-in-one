@@ -34,7 +34,7 @@
     <section id="ttt" class="tictac">
         <div class="container">
             <div class="tictac__inner">
-                <div class="tictac__title">You want to play <span>Tic-tac-toe?</span></div>
+                <div class="tictac__title">Do you want to play <span>Tic-tac-toe?</span></div>
                 <div class="tictac__subtitle">You'll never beat him!</div>
                 <table class="tictac__table">
                     <tr class="tictac__row">
@@ -54,7 +54,9 @@
                     </tr>
                 </table>
                 <div class="tictac__endgame">
-                    <div class="tictac__text"></div>
+                    <div class="tictac__endgame--block">
+                        <div class="tictac__endgame--text"></div>
+                    </div>
                 </div>
                 <div class="tictac__replay">
                     <button class="tictac__btn" onclick="startGame()">Replay</button>
@@ -68,11 +70,7 @@
         <div class="container">
             <div class="rps__inner">
                 <div class="rps__title">How about rock paper scissors?</div>
-                <div class="rps__subtitle">
-                    Have a good game!
-                    <br>
-                    <div>The counter resets after 10</div>
-                </div>
+                <div class="rps__subtitle">Have a good game!</div>
                 <div class="rps__score">
                     <div id="rps__player--score">
                         <h2>Player</h2>
@@ -92,8 +90,8 @@
                 <div class="rps__match fadeOut">
                     <h2 class="rps__winner">Choose an option</h2>
                     <div class="rps__hands">
-                        <img class="rps__player--hand" src="assets/images/rock.png" alt="">
-                        <img class="rps__computer--hand" src="assets/images/rock.png" alt="">
+                        <img class="rps__player--hand" src="assets/images/rps/rock.png" alt="">
+                        <img class="rps__computer--hand" src="assets/images/rps/rock.png" alt="">
                     </div>
                 </div>
 
@@ -109,11 +107,64 @@
     <!-- Snake -->
     <section class="snake">
         <div class="container">
-            <button class="snake__btn">Tap to lock the screen</button>
-            <canvas id="game" class="snake__game" width="608" height="608"></canvas>
-            <div class="snake__title">
-                Управление
-                <img src="assets/images/wasd.png" alt="">
+            <div class="snake__inner">
+                <div class="snake__title">What do you think about the snake?</div>
+                <div class="snake__inner--game">
+                    <canvas id="game" class="snake__game" width="608" height="608"></canvas>
+                    <div class="snake__modal">
+                        <div class="snake__modal--inner">
+                            <div class="snake__modal--title">Not bad, will you try again?</div>
+                            <div class="snake__modal--score">
+                                <div class="snake__modal--score__inner">
+                                    <img src="assets/images/snake/food.png" alt="">
+                                    <span id="ssN">0</span>
+                                </div>
+                                <div class="snake__modal--score__inner">
+                                    <img src="assets/images/snake/cup.png" alt="">
+                                    <span id="ssB">0</span>
+                                </div>
+                            </div>
+                            <button class="snake__modal--button">Play</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="snake__settings">
+                    <div class="snake__control">
+                        <div class="snake__btn--up">
+                            <button id="snake--up">
+                                <img src="assets/images/snake/up.png" alt="">
+                            </button>
+                        </div>
+                        <button id="snake--left">
+                            <img src="assets/images/snake/left.png" alt="">
+                        </button>
+                        <button id="snake--down">
+                            <img src="assets/images/snake/down.png" alt="">
+                        </button>
+                        <button id="snake--right">
+                            <img src="assets/images/snake/right.png" alt="">
+                        </button>
+                    </div>
+                    <div class="snake__control--text">Game Control</div>
+                    <img class="snake__wasd" src="assets/images/snake/wasd.png" alt="">
+                </div>
+                <div class="snake__modal">
+                    <div class="snake__modal--inner">
+                        <div class="snake__modal--title">Not bad, will you try again?</div>
+                        <div class="snake__modal--score">
+                            <div class="snake__modal--score__inner">
+                                <img src="assets/images/snake/food.png" alt="">
+                                <span id="ssN">0</span>
+                            </div>
+                            <div class="snake__modal--score__inner">
+                                <img src="assets/images/snake/cup.png" alt="">
+                                <span id="ssB">0</span>
+                            </div>
+                        </div>
+                        <button class="snake__modal--button">Play</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
